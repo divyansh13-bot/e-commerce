@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from .models import LoginData
 from .models import Product
 from .serializer import ProductSerializer
+from .serializer import LoginDataSerializer
 
 def index(request):
     return JsonResponse({"message": "API working"})
@@ -29,6 +30,15 @@ def save_login_data(request):
     )
 
     return Response({"message": "Login data saved successfully"})
+
+@api_view(["POST"])
+def login_view(request):
+    serializer = LoginDataSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message": "Login data saved successfully"})
+    return Response(serializer.errors, status=400)
+
 
 def get_product(request, id):
     try:

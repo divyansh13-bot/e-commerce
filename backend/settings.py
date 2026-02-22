@@ -60,8 +60,12 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://frontend.vercel.app",
+    "http://localhost:3000",
 ]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://frontend.vercel.app",
+# ]
 
 # AUTH_USER_MODEL = 'your_app.CustomUser'  # if using custom model
 
@@ -72,7 +76,7 @@ CORS_ALLOWED_ORIGINS = [
 # }
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
