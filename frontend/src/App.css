@@ -1,0 +1,349 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* sidebar.css */
+.sidebar {
+  width: 260px;              /* fixed width on the left */
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  height: 100vh;             /* full page height */
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.sidebar-section {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+  background: #f8fafc;
+}
+
+.shop-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  background: white;
+  margin-left: 2px;
+  padding: 10px;
+  border-radius: 12px;
+  height: fit-content;
+}
+
+.product-grid {
+  display: grid !important;  /* override any flex */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.product-grid:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.products {
+  padding: 20px;
+}
+
+.card-img-top{
+  width: 100% !important;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.card{
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  /* remove any fixed width/height from inline styles */
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-body{
+  text-align: center;
+  height: 300px;
+}
+
+/* .product-grid{
+  /* display : flex;
+  align-items : flex-start; */
+  /* gap:20px; */
+  /* flex-wrap : wrap; */
+  /* margin-top:20px; */
+  /* display:grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+  /* padding: 20px; */
+  /* min-height: 950px; */
+/* } */
+
+
+/* Tablet (992px and below) */
+@media (max-width: 992px) {
+  .shop-container {
+    grid-template-columns: 240px 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  
+  .card img {
+    height: 240px;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .shop-container {
+    grid-template-columns: 1fr;  /* full width, no side-by-side */
+    gap: 20px;
+  }
+  
+  .sidebar {
+    order: -1;  /* sidebar moves to top */
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  
+  .card img {
+    height: 180px;
+  }
+  
+  .card-title, .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 16px;
+  }
+  
+  .sidebar {
+    padding: 16px;
+  }
+}
+
+
+
+/* ABOUT PAGE */
+
+.about-heading{
+  text-align: center;
+}
+
+.about-content{
+  /* align-items: center;
+  justify-content: center;
+  margin: 50px;
+  margin-left: 100px; */
+  padding: 40px;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.about-1{
+  margin-left: 50px;
+  transform: translateX(-30px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-left: 5px solid #007bff;
+}
+
+.about-2{
+  margin-right: 50px;
+  transform: translateX(30px);
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-right: 5px solid #007bff;
+}
+
+.about-3{
+  margin-left: 50px;
+  transform: translateX(-30px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-left: 5px solid #007bff;
+}
+
+.about-4{
+  margin-right: 50px;
+  transform: translateX(30px);
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-right: 5px solid #007bff;
+}
+
+.about-content  :hover{
+  transform: translateY(-3px);
+}
+/* HOMEPAGE */
+
+.carousel slide{
+  height: 1000px;
+}
+
+.card1-img{
+  width: 525px;
+  height: 600px;
+  object-fit: cover;
+  align-items: center;
+  /* margin-left: 500px; */
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 80px;
+  border-radius: 40px;
+}
+
+.card1-btn{
+   display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 5px;
+  /* margin-left: 650px; */
+  width: 200px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card1-details{
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.card1-p{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.card1-btn button{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  /* margin-left: 650px; */
+  width: 200px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card1-btn2 button{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 5px;
+  width: 200px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial ', Arial, sans-serif;
+}
+
+/*Navbar*/
+
+.navbar{
+  /* position: sticky; */
+  top: 0;
+  z-index: 999;
+}
+
+/* Order list */
+
+.order-head{
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial ', Arial, sans-serif;
+}
