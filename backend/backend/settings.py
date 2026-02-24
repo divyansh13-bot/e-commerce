@@ -27,7 +27,7 @@ SECRET_KEY =  os.environ.get("SECRET_KEY", "django-insecure-dev-key")
 DEBUG = os.environ.get("DEBUG", "True") == 'True'
 
 ALLOWED_HOSTS = [
-    "*"
+    "*",
     "e-commerce-ry60.onrender.com",
     "127.0.0.1",
     "localhost"
