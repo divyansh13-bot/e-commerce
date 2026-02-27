@@ -45,12 +45,24 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'myproject',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+import cloudinary
+
+cloudinary.config(
+    cloud_name = "dwjlformm",
+    api_key = "334982457416216",
+    api_secret = "KEX77aeEtekiwehs5cW9u5ICqnk",
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
