@@ -24,7 +24,11 @@ function ProductGrid({ products }) {
             onClick={() => navigate(`/product/${product.id}`)}
           >
             <img
-              src={`${BASE_URL}${product.image}`}
+              src={
+                product.image.startsWith("http")
+                  ? product.image
+                  : `${BASE_URL}${product.image}`
+              }
               className="card-img-top"
               alt={product.name}
             />

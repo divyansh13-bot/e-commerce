@@ -22,21 +22,35 @@ function ProductPage() {
 
   return (
     <>
-      <div style={{ padding: "30px", textAlign: "center",  }}>
+      <div style={{ padding: "30px", textAlign: "center" }}>
         <img
-          src={`http://127.0.0.1:8000${product.image}`}
+          src={
+            product.image.startsWith("http")
+              ? product.image
+              : `${BASE_URL}${product.image}`
+          }
           alt={product.name}
           style={{ width: "300px", borderRadius: "20px" }}
         />
 
-        <h1 style={{fontFamily: "fangsong"}}>{product.name}</h1>
-        <h3 style={{fontFamily: "math"}}>₹{product.price}</h3>
-        <p style={{fontSize: '20px', fontFamily: "-apple-system"}}>{product.description}</p>
+        <h1 style={{ fontFamily: "fangsong" }}>{product.name}</h1>
+        <h3 style={{ fontFamily: "math" }}>₹{product.price}</h3>
+        <p style={{ fontSize: "20px", fontFamily: "-apple-system" }}>
+          {product.description}
+        </p>
       </div>
       <button
         onClick={() => navigate(`/order/${product.id}`)}
-        style={{ padding: "12px 25px", fontSize: "16px", display: 'flex', justifyContent: "center",
-           alignItems: "center", margin: "0 auto", borderRadius: "10px", backgroundColor: "#475569" }}
+        style={{
+          padding: "12px 25px",
+          fontSize: "16px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0 auto",
+          borderRadius: "10px",
+          backgroundColor: "#475569",
+        }}
       >
         Buy Now
       </button>
