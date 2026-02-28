@@ -52,6 +52,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 cloudinary.config(
     cloud_name = "dwjlformm",
