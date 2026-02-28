@@ -55,13 +55,22 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-cloudinary.config(
-    cloud_name = "dwjlformm",
-    api_key = "334982457416216",
-    api_secret = "KEX77aeEtekiwehs5cW9u5ICqnk",
-)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('dwjlformm'),
+    'API_KEY': os.environ.get('334982457416216'),
+    'API_SECRET': os.environ.get('KEX77aeEtekiwehs5cW9u5ICqnk'),
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# cloudinary.config(
+#     cloud_name = "dwjlformm",
+#     api_key = "334982457416216",
+#     api_secret = "KEX77aeEtekiwehs5cW9u5ICqnk",
+# )
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
