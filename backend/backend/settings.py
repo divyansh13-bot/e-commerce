@@ -57,9 +57,9 @@ import cloudinary.api
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('dwjlformm'),
-    'API_KEY': os.environ.get('334982457416216'),
-    'API_SECRET': os.environ.get('KEX77aeEtekiwehs5cW9u5ICqnk'),
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('API_KEY'),
+    'API_SECRET': os.environ.get('API_SECRET'),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
