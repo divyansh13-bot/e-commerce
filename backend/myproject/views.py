@@ -17,11 +17,16 @@ def index(request):
 
 @api_view(['POST'])
 def save_login_data(request):
-    print(request.data)  # 👈 ADD THIS
-
     email = request.data.get('email')
     phone = request.data.get('phone')
     password = request.data.get('password')
+
+    if not email or not phone or not password:
+        return Response({"error": "All fields are required"}, status=400)
+
+    # prevent duplicate email
+    if LoginData.objects.filter(email=email).exists():
+        return Response({"error": "Email already exists"}, status=400)
 
     LoginData.objects.create(
         email=email,
@@ -29,15 +34,31 @@ def save_login_data(request):
         password=password
     )
 
-    return Response({"message": "Login data saved successfully"})
+    return Response({"message": "Signup successful"})
 
-@api_view(["POST"])
-def login_view(request):
-    serializer = LoginDataSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message": "Login data saved successfully"})
-    return Response(serializer.errors, status=400)
+# @api_view(['POST'])
+# def save_login_data(request):
+#     print(request.data)  # 👈 ADD THIS
+
+#     email = request.data.get('email')
+#     phone = request.data.get('phone')
+#     password = request.data.get('password')
+
+#     LoginData.objects.create(
+#         email=email,
+#         phone=phone,
+#         password=password
+#     )
+
+#     return Response({"message": "Login data saved successfully"})
+
+# @api_view(["POST"])
+# def login_view(request):
+#     serializer = LoginDataSerializer(data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response({"message": "Login data saved successfully"})
+#     return Response(serializer.errors, status=400)
 
 
 def get_product(request, id):
