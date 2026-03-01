@@ -15,6 +15,11 @@ def index(request):
 
 # REGISTRATION API
 
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
+from django.utils.decorators import method_decorator
+
+@csrf_exempt
 @api_view(['POST'])
 def save_login_data(request):
     email = request.data.get('email')
@@ -23,10 +28,6 @@ def save_login_data(request):
 
     if not email or not phone or not password:
         return Response({"error": "All fields are required"}, status=400)
-
-    # prevent duplicate email
-    if LoginData.objects.filter(email=email).exists():
-        return Response({"error": "Email already exists"}, status=400)
 
     LoginData.objects.create(
         email=email,
