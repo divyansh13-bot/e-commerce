@@ -88,7 +88,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-     "https://your-frontend-name.onrender.com",
+    "http://localhost:3000",
+    "https://e-commerce-1-lw6r.onrender.com",
 ]
 
 # CORS_ALLOWED_ORIGINS = [
@@ -107,7 +108,7 @@ CORS_ALLOWED_ORIGINS = [
 # CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
+    "https://e-commerce-1-lw6r.onrender.com",
 ]
 
 ROOT_URLCONF = 'backend.urls'
