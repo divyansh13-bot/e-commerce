@@ -26,6 +26,25 @@ function Login() {
 
   // 🔹 handle submit
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await fetch(API_ENDPOINTS.login, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const data = await response.json();
+  //     alert(data.message);
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,9 +58,15 @@ function Login() {
       });
 
       const data = await response.json();
-      alert(data.message);
+      if (response.ok) {
+        alert("Signup successful 🎉");
+        navigate("/");
+      } else {
+        alert(data.error || "Something went wrong");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("Something went wrong");
     }
   };
 
