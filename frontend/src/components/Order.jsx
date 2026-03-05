@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import BASE_URL from "../api";
 
 function Order() {
@@ -7,7 +7,7 @@ function Order() {
   const [product, setProduct] = useState(null);
 
   const navigate = useNavigate();
-  
+
   const handlePlaceOrder = () => {
     navigate("/checkout");
   };
@@ -26,20 +26,35 @@ function Order() {
   }
 
   return (
-    <div style={{ padding: "30px",textAlign: "center" }}>
-      <h1 style={{fontSize:"40px", fontFamily: "math"}}>Order Summary</h1>
+    <div style={{ padding: "30px", textAlign: "center" }}>
+      <h1 style={{ fontSize: "40px", fontFamily: "math" }}>Order Summary</h1>
 
       <img
-        src={`${BASE_URL}${product.image}`}
+        src={
+          product.image.startsWith("http")
+            ? product.image
+            : `${BASE_URL}${product.image}`
+        }
         alt={product.name}
-        style={{ width: "250px", marginTop: "20px", borderRadius: "15px"}}
+        style={{ width: "250px", marginTop: "20px", borderRadius: "15px" }}
       />
 
-      <h2 style={{fontFamily: "fangsong"}}>{product.name}</h2>
-      <h3 style={{fontFamily: "math"}}>₹{product.price}</h3>
-      <p style={{fontFamily: "-apple-system", fontSize: "18px"}}>{product.description}</p>
+      <h2 style={{ fontFamily: "fangsong" }}>{product.name}</h2>
+      <h3 style={{ fontFamily: "math" }}>₹{product.price}</h3>
+      <p style={{ fontFamily: "-apple-system", fontSize: "18px" }}>
+        {product.description}
+      </p>
 
-      <button onClick={handlePlaceOrder} style={{ padding: "12px 30px", marginTop: "15px", backgroundColor: "#475569", color: "white", borderRadius: "10px" }}>
+      <button
+        onClick={handlePlaceOrder}
+        style={{
+          padding: "12px 30px",
+          marginTop: "15px",
+          backgroundColor: "#475569",
+          color: "white",
+          borderRadius: "10px",
+        }}
+      >
         Place Order
       </button>
     </div>
